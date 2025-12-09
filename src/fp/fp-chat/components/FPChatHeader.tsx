@@ -24,7 +24,7 @@ export default function FPChatHeader({
   };
 
   return (
-    <>
+    <div className="chat-header-container">
       {/* Header */}
       <div className="chat-header">
         {onBackToConversations && (
@@ -109,6 +109,6 @@ export default function FPChatHeader({
           Description
         </button>
       </div>
-    </>
+    </div>
   );
 }
