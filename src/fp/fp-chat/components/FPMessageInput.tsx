@@ -1,4 +1,5 @@
-import { useRef, useEffect, RefObject, KeyboardEvent } from "react";
+import { useEffect, RefObject, KeyboardEvent } from "react";
+import type React from "react";
 import { Smile } from "lucide-react";
 import "emoji-picker-element";
 import { DraftAttachment, Contact } from "../../common/types/chat";
@@ -43,7 +44,7 @@ export default function FPMessageInput({
   inputRef,
   buttonRef,
   emojiPickerRef,
-}: FPMessageInputProps): JSX.Element {
+}: FPMessageInputProps): React.JSX.Element | null {
   // Handle emoji selection and make navigation bar scrollable
   useEffect(() => {
     if (!showEmojiPicker) return;
@@ -108,7 +109,7 @@ export default function FPMessageInput({
             navElement.style.whiteSpace = "nowrap";
             navElement.style.display = "flex";
             navElement.style.scrollbarWidth = "none";
-            navElement.style.webkitOverflowScrolling = "touch";
+            (navElement.style as any).webkitOverflowScrolling = "touch";
             break; // Found and styled, exit
           }
         }
@@ -297,6 +298,7 @@ export default function FPMessageInput({
 
         {showEmojiPicker && (
           <div ref={emojiPickerRef} className="emoji-picker-container">
+            {/* @ts-ignore - emoji-picker is a custom web component */}
             <emoji-picker className="emoji-picker-element"></emoji-picker>
           </div>
         )}

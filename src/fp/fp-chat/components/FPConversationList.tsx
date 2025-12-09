@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { SquarePen } from "lucide-react";
 import { SlidersHorizontal } from "lucide-react";
 import { ArrowUpDown } from "lucide-react";
 import { Search } from "lucide-react";

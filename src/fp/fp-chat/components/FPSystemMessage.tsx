@@ -1,9 +1,9 @@
 import UserCheckIcon from "../assets/UserCheck.svg";
-import SealCheckIcon from "../assets/SealCheck.svg";
 import ForkKnifeIcon from "../assets/ForkKnife.svg";
 import {
   Message,
   RecommendedProduct,
+  RecommendedProductsPayload,
   CoachAssignedPayload,
   CoachDetailsPayload,
 } from "../../common/types/chat";
@@ -21,10 +21,15 @@ export default function FPSystemMessage({
     msg.system?.action_type === "recommended_products" ||
     msg.recommendedProducts
   ) {
-    const payload = msg.recommendedProducts || {
+    const payload: RecommendedProductsPayload = msg.recommendedProducts || {
       action_type: "recommended_products" as const,
       title: msg.system?.title,
-      description: msg.system?.description,
+      description:
+        typeof msg.system?.description === "string"
+          ? msg.system.description
+          : msg.system?.description
+          ? String(msg.system.description)
+          : undefined,
       product_list: msg.system?.product_list || [],
     };
 
@@ -425,7 +430,7 @@ export default function FPSystemMessage({
                 dangerouslySetInnerHTML={{ __html: payload.title }}
               />
             )}
-            {payload.description && (
+            {payload.description && typeof payload.description === "string" && (
               <div
                 style={{
                   fontSize: "14px",
@@ -476,8 +481,9 @@ export default function FPSystemMessage({
                 paddingRight: "12px",
               }}
             >
-              {payload.product_list.map((product, index) =>
-                renderProduct(product, index)
+              {payload.product_list.map(
+                (product: RecommendedProduct, index: number) =>
+                  renderProduct(product, index)
               )}
             </div>
           </div>
