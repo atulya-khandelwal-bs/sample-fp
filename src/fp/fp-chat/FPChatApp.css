@@ -14,6 +14,16 @@
   display: none; /* Chrome, Safari, Opera */
 }
 
+/* Hide scrollbars for all browsers */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 :root {
   --bg: #ffffff;
   --panel: #ffffff;
@@ -1592,48 +1602,14 @@ input {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 0.5rem 0.75rem;
-  }
-
-  .chat-header .back-btn {
-    padding: 0.375rem !important;
-    margin-right: 0.375rem !important;
-  }
-
-  .chat-header .back-btn svg {
-    width: 20px !important;
-    height: 20px !important;
-  }
-
-  .chat-header button[title="Start video call"] {
-    padding: 0.375rem !important;
-  }
-
-  .chat-header button[title="Start video call"] svg {
-    width: 20px !important;
-    height: 20px !important;
   }
 
   .chat-header .contact-info {
     flex: 1;
   }
 
-  .chat-header .contact-info h2 {
-    font-size: 1rem;
-    margin-bottom: 0.125rem;
-  }
-
-  .chat-header .contact-info p {
-    font-size: 0.75rem;
-  }
-
   .nav-tabs {
     flex-shrink: 0;
-  }
-
-  .nav-tabs .tab {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.8125rem;
   }
 
   .chat-area {
@@ -1652,49 +1628,6 @@ input {
     z-index: 10;
     background: var(--bg);
     flex-shrink: 0;
-    padding: 0.5rem 0.75rem;
-  }
-
-  .input-container {
-    margin-bottom: 0.5rem;
-  }
-
-  .input-wrapper {
-    padding: 0.125rem;
-  }
-
-  .message-input {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-  }
-
-  .button-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 0.25rem;
-    padding-right: 0.5rem;
-    padding-top: 0.5rem;
-  }
-
-  .attachment-btn,
-  .emoji-button,
-  .audio-btn {
-    padding: 0.375rem;
-  }
-
-  .attachment-btn svg,
-  .emoji-button svg,
-  .audio-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .send-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    min-width: 80px;
-    height: 36px;
   }
 }
 
