@@ -1,10 +1,12 @@
+import React from "react";
+
 interface FPTextMessageViewProps {
   content: string | object | null | undefined;
 }
 
 export default function FPTextMessageView({
   content,
-}: FPTextMessageViewProps): JSX.Element {
+}: FPTextMessageViewProps): React.JSX.Element | null {
   // Ensure content is always a string
   const contentToRender =
     typeof content === "string"
@@ -15,4 +17,3 @@ export default function FPTextMessageView({
 
   return <div className="message-text">{contentToRender}</div>;
 }
-

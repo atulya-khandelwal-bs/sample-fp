@@ -1,3 +1,4 @@
+import React from "react";
 import { Video } from "lucide-react";
 
 interface FPCallMessageProps {
@@ -8,10 +9,13 @@ interface FPCallMessageProps {
 export default function FPCallMessage({
   callType,
   callDurationSeconds,
-}: FPCallMessageProps): JSX.Element {
+}: FPCallMessageProps): React.JSX.Element | null {
   const formatDuration = (seconds: number): string => {
     if (seconds == null) return "";
-    return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
+    return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(
+      2,
+      "0"
+    )}`;
   };
 
   return (
@@ -51,4 +55,3 @@ export default function FPCallMessage({
     </div>
   );
 }
-

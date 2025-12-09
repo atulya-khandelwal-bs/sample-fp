@@ -1,3 +1,5 @@
+import React from "react";
+
 interface FPImageMessageViewProps {
   imageUrl: string;
   fileName?: string;
@@ -8,7 +10,7 @@ export default function FPImageMessageView({
   imageUrl,
   fileName,
   openImageViewer,
-}: FPImageMessageViewProps): JSX.Element {
+}: FPImageMessageViewProps): React.JSX.Element | null {
   return (
     <img
       src={imageUrl}
